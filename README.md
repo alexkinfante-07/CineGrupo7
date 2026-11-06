@@ -20,16 +20,6 @@ El sistema permite gestionar un catálogo cinematográfico completo donde un **G
 * **Base de Datos:** SQL Server (`LocalDB` / `SQLEXPRESS`)
 * **Diseño Visual:** Bootstrap 5 & CSS3
 
----
-
-## Componente Autónomo Desarrollado (Turno 4)
-Para dar solución a los requerimientos autónomos planteados por el docente, se realizaron las siguientes optimizaciones sobre los formularios automáticos:
-
-1. **Lista Desplegable Dinámica:** Se sustituyó el campo de texto plano de la Clave Foránea en el formulario de creación (`Create.cshtml`) de Películas por un elemento `<select>` de Bootstrap. Este componente mapea dinámicamente los registros de la tabla `Genero` directo desde la Base de Datos.
-2. **Mapeo de Datos Relacionados:** Se optimizó el método `POST` en el controlador `PeliculasController` para interceptar el ID seleccionado, recuperar el objeto correspondiente de la base de datos y almacenar directamente el nombre textual del género (*Acción, Comedia, etc.*), corrigiendo el fallo del ID numérico expuesto en el listado principal (`Index.cshtml`).
-
----
-
 ## Instrucciones para Ejecución Local
 
 Si deseas clonar y ejecutar este proyecto en tu entorno local, sigue estos pasos:
