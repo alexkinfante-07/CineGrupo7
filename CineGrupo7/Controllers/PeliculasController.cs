@@ -93,6 +93,7 @@ public class PeliculasController : Controller
         {
             return NotFound();
         }
+        ViewData["GeneroId"] = new SelectList(_context.Genero, "Titulo", "Titulo", pelicula.Genero);
         return View(pelicula);
     }
 
