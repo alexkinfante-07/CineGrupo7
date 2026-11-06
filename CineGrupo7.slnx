@@ -1,6 +1,6 @@
 <Solution>
   <Folder Name="/Elementos de la solución/">
-    <File Path="MarkdownFile1.md" />
+    <File Path="README.md" />
   </Folder>
   <Project Path="CineGrupo7/CineGrupo7.csproj" />
 </Solution>
