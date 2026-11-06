@@ -50,20 +50,34 @@ public class PeliculasController : Controller
     // POST: PELICULAS/Create
     // To protect from overposting attacks, enable the specific properties you want to bind to.
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+    // POST: Peliculas/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create([Bind("Id,Titulo,Director,AnioEstreno,Genero")] Pelicula pelicula)
     {
+        // 1. Validamos si el usuario seleccionó un ID válido en el formulario
+        if (!string.IsNullOrEmpty(pelicula.Genero) && int.TryParse(pelicula.Genero, out int generoId))
+        {
+            // 2. Buscamos el objeto Genero real en la base de datos usando ese ID
+            var generoReal = await _context.Genero.FindAsync(generoId);
+            if (generoReal != null)
+            {
+                // 3. Reemplazamos el ID numérico por el NOMBRE real del género (ej: "Comedia")
+                pelicula.Genero = generoReal.Titulo;
+            }
+        }
+
         if (ModelState.IsValid)
         {
             _context.Add(pelicula);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        // Si algo falla, recarga la lista para que la pantalla no se rompa
+
         ViewData["GeneroId"] = new SelectList(_context.Genero, "Id", "Titulo", pelicula.Genero);
         return View(pelicula);
     }
+
 
 
     // GET: PELICULAS/Edit/5

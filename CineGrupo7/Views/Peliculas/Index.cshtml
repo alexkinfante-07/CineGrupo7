@@ -40,7 +40,8 @@
                 @Html.DisplayFor(model => item.AnioEstreno)
             </td>
             <td>
-                @Html.DisplayFor(model => item.Genero)
+                @Html.DisplayFor(modelItem => item.Genero)
+
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
