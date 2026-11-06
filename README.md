@@ -3,10 +3,10 @@
 Este proyecto corresponde a la actividad práctica grupal para la materia de Programación. Implementa una arquitectura **MVC** utilizando **Entity Framework Core** y **SQL Server**, aplicando una relación de uno a muchos entre las entidades **Género** y **Película**.
 
 ## Integrantes - Grupo 7
-* Alex (Líder / Estructura Base y Migraciones)
-* Compañero 2 (Validaciones de Entidades)
-* Compañero 3 (Modelado de Relaciones)
-* **Emmanuel Mogollón** (Componente Autónomo, Documentación y Entrega)
+* Alexander Rafael Infante Salas (Estructura Base y Migraciones, repositorio GitHub, CRUD)
+* Carmen Violeta Tapia Sotamba (Validaciones de Entidades Validaciones DataAnnotations en Pelicula)
+* Jannina Viviana Puga Monserrate  (Modelado de Relaciones, Modelo y CRUD Genero, llave foránea (FK))
+* Eliecer Mateo Mogollón Ortiz  (Componente Autónomo, Documentación, Regenerar CRUD Pelicula, lista desplegable, README)
 
 ---
 
