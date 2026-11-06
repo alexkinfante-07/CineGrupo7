@@ -1,7 +1,8 @@
 
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using CineGrupo7.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 public class PeliculasController : Controller
 {
@@ -37,10 +38,14 @@ public class PeliculasController : Controller
     }
 
     // GET: PELICULAS/Create
+    // GET: Peliculas/Create
     public IActionResult Create()
     {
+        // Carga los géneros en un SelectList enviando el ID y el título para la lista desplegable
+        ViewData["GeneroId"] = new SelectList(_context.Genero, "Id", "Titulo");
         return View();
     }
+
 
     // POST: PELICULAS/Create
     // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -55,8 +60,11 @@ public class PeliculasController : Controller
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        // Si algo falla, recarga la lista para que la pantalla no se rompa
+        ViewData["GeneroId"] = new SelectList(_context.Genero, "Id", "Titulo", pelicula.Genero);
         return View(pelicula);
     }
+
 
     // GET: PELICULAS/Edit/5
     public async Task<IActionResult> Edit(int? id)
